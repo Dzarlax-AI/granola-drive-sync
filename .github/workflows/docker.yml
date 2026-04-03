@@ -3,6 +3,9 @@ name: Build and push Docker image
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '**.md'
+      - '.env.example'
   release:
     types: [published]
 
