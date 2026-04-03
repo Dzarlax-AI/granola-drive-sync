@@ -1,0 +1,4 @@
+.env
+granola-sync
+*.json
+!go.sum
