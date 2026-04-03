@@ -19,13 +19,19 @@ A hidden file stored in the root of your Drive folder. It maps each Granola note
 
 ## Setup
 
-### 1. Google Cloud credentials
+### 1. Granola API key
+
+1. Open the Granola app → **Settings → Integrations → API**
+2. Generate a new API key
+3. Copy it into `.env` as `GRANOLA_API_KEY`
+
+### 3. Google Cloud credentials
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com/) → **APIs & Services → Enable APIs** → enable **Google Drive API**
 2. **Credentials → Create Credentials → OAuth 2.0 Client ID → Desktop app** — download the JSON
 3. Copy `client_id` and `client_secret` into `.env`
 
-### 2. Get a refresh token (one-time, run locally)
+### 4. Get a refresh token (one-time, run locally)
 
 ```bash
 go build -o granola-sync .
@@ -35,7 +41,7 @@ export $(grep -v '^#' .env | xargs)
 
 A browser window will open. After authorizing, copy the printed `GOOGLE_REFRESH_TOKEN` into `.env`.
 
-### 3. Configure `.env`
+### 5. Configure `.env`
 
 ```env
 GRANOLA_API_KEY=grn_...
@@ -56,9 +62,11 @@ SYNC_INTERVAL=1h
 https://drive.google.com/drive/folders/<FOLDER_ID>
 ```
 
-### 4. Run
+### 6. Run
 
 ```bash
+cp .env.example .env  # fill in your values
+docker compose pull
 docker compose up -d
 docker compose logs -f
 ```

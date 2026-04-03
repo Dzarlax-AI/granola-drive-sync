@@ -1,5 +1,5 @@
 services:
   granola-sync:
-    build: .
+    image: ghcr.io/dzarlax-ai/granola-drive-sync:latest
     restart: unless-stopped
     env_file: .env
