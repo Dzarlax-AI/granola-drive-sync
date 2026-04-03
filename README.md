@@ -62,6 +62,8 @@ SYNC_INTERVAL=1h
 https://drive.google.com/drive/folders/<FOLDER_ID>
 ```
 
+> **Note:** The Docker image is built for `linux/amd64` only.
+
 ### 6. Run
 
 ```bash
